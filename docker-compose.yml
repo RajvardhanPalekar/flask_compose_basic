@@ -1,0 +1,32 @@
+version: "3"
+services:
+
+  # front:
+  #   build:
+  #     context: front
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./front/:/app
+  #   ports:
+  #     - "3001:3001"
+  #   networks:
+  #     - myapp
+
+  back:
+    container_name: api
+    image: rajvardhanpalekar/quotes-back:v1
+    ports:
+      - "3000:3000"
+    networks:
+      - myapp
+
+  data:
+    container_name: data
+    image: rajvardhanpalekar/quotes-data:v1
+    ports:
+      - "3306:27017"
+    networks:
+      - myapp
+
+networks:
+  myapp:

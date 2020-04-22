@@ -9,7 +9,6 @@ mongo_uri=os.environ['MONGODB_URI']
 client = MongoClient(mongo_uri)
 db = client['quotes_db']
 
-
 @app.route('/api/v1/get-quotes', methods=['GET'])
 def get_quotes():
     quotes = db['quotes']
